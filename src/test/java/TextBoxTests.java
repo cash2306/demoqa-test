@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxTests {
     @BeforeAll
@@ -13,12 +12,15 @@ public class TextBoxTests {
         Configuration.browserSize = "1920x1080";
         Configuration.pageLoadStrategy = "eager";
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.holdBrowserOpen = true;
-        Configuration.timeout = 5000; // default 4000
+
     }
        @Test
         void fillFormTest() {
-           open("https://demoqa.com/automation-practice-form");
+           open(
+                   executeJavaScript("$('#fixedban').remove()");
+           executeJavaScript("$('footer').remove()");
+
+           "https://demoqa.com/automation-practice-form");
 
             //Personal data
             $("#userForm #firstName").setValue("Bob");
