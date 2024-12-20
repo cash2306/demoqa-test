@@ -17,12 +17,11 @@ public class TextBoxTests {
        @Test
         void fillFormTest() {
            open(
-                   executeJavaScript("$('#fixedban').remove()");
+                   "https://demoqa.com/automation-practice-form");
+           executeJavaScript("$('#fixedban').remove()");
            executeJavaScript("$('footer').remove()");
 
-           "https://demoqa.com/automation-practice-form");
-
-            //Personal data
+           //Personal data
             $("#userForm #firstName").setValue("Bob");
             $("#userForm #lastName").setValue("Smith");
             $("#userEmail").setValue("bobsmith@candex.com");
