@@ -1,3 +1,4 @@
+package tests;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -16,8 +17,7 @@ public class TextBoxTests {
     }
        @Test
         void fillFormTest() {
-           open(
-                   "https://demoqa.com/automation-practice-form");
+           open("https://demoqa.com/automation-practice-form");
            executeJavaScript("$('#fixedban').remove()");
            executeJavaScript("$('footer').remove()");
 
