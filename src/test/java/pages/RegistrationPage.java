@@ -4,7 +4,6 @@ import com.codeborne.selenide.SelenideElement;
 import pages.components.CalendarComponent;
 import pages.components.ModalComponent;
 
-import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -29,10 +28,8 @@ public class RegistrationPage {
     ModalComponent modalComponent = new ModalComponent();
 
     public RegistrationPage openPage() {
-        open("https://demoqa.com/automation-practice-form");
-        //$(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
-        //executeJavaScript("$('#fixedban').remove()");
-       // executeJavaScript("$('footer').remove()");
+        open("/automation-practice-form");
+
 
         return this;
     }
@@ -118,15 +115,5 @@ public class RegistrationPage {
         submitButton.click();
     }
 
-    public RegistrationPage verifyRegistrationResultsModalAppears() {
-        modalComponent.verifyModalAppears();
 
-        return this;
-    }
-
-    public RegistrationPage verifyResult(String key, String value) {
-        modalComponent.verifyResult(key, value);
-
-        return this;
-    }
 }
