@@ -19,25 +19,16 @@ public class TextBoxTestsPageObjects {
         registrationPage
                 .openPage()
                  .removeBanners()
-           //Personal data
                 .setFirstName("Bob")
                 .setLastName("Smith")
                 .setEmail("bobsmith@candex.com")
-            //Date of Birth
                 .setBirthDate("15", "July", "1990")
-            //Number
                 .setMobileNumber("09876543210")
-            //Gender
                 .chooseGender("Female")
-            //Subjects
                 .setAndChooseSubject("Maths")
-           //Hobbies
                 .chooseHobbies("Music")
-           //Picture
                 .uploadPicture("cat.jpg")
-            //Current Address
                 .setAddress("INDIA")
-            //State and City
                 .chooseStateAndCity("Haryana","Panipat")
                 .clickSubmit();
 
