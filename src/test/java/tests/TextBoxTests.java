@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static tests.TestData.*;
 
 public class TextBoxTests {
     @BeforeAll
@@ -17,14 +18,19 @@ public class TextBoxTests {
     }
        @Test
         void fillFormTest() {
+        //String firstName="Bob",
+             //   lastName="Smith",
+                //userEmail="bobsmith@candex.com";
+
+
            open("https://demoqa.com/automation-practice-form");
            executeJavaScript("$('#fixedban').remove()");
            executeJavaScript("$('footer').remove()");
 
            //Personal data
-            $("#userForm #firstName").setValue("Bob");
-            $("#userForm #lastName").setValue("Smith");
-            $("#userEmail").setValue("bobsmith@candex.com");
+            $("#userForm #firstName").setValue(firstName);
+            $("#userForm #lastName").setValue(lastName);
+            $("#userEmail").setValue(userEmail);
             //Gender
            $("#genterWrapper").$(byText("Female")).click();
             //Number
@@ -47,8 +53,8 @@ public class TextBoxTests {
             $("#userForm #react-select-4-input").setValue("Panipat").pressEnter();
             $("#submit").click();
            $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-           $(".table").$(byText("Student Name")).sibling(0).shouldHave(text("Bob Smith"));
-           $(".table").$(byText("Student Email")).sibling(0).shouldHave(text("bobsmith@candex.com"));
+           $(".table").$(byText("Student Name")).sibling(0).shouldHave(text(firstName),text(lastName));
+           $(".table").$(byText("Student Email")).sibling(0).shouldHave(text(userEmail));
            $(".table").$(byText("Gender")).sibling(0).shouldHave(text("Female"));
            $(".table").$(byText("Mobile")).sibling(0).shouldHave(text("0987654321"));
            $(".table").$(byText("Date of Birth")).sibling(0).shouldHave(text("15 June,1990"));

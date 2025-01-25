@@ -7,6 +7,9 @@ import pages.RegistrationPage;
 
 public class TextBoxTestsPageObjects {
     RegistrationPage registrationPage = new RegistrationPage();
+    String firstName="Bob",
+            lastName="Smith",
+            userEmail="bobsmith@candex.com";
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
