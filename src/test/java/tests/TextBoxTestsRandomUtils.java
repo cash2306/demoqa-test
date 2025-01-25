@@ -24,6 +24,9 @@ public class TextBoxTestsRandomUtils {
     String BirthYear = String.valueOf(getRandomInt(1925,2025));
     String Subject = getRandomSubject();
     String Hobbies = getRandomHobbies();
+    String Picture = getRandomPicture();
+    String State = getRandomState();
+    String City = getRandomCity();
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
@@ -44,9 +47,9 @@ public class TextBoxTestsRandomUtils {
                 .chooseGender(Gender)
                 .setAndChooseSubject(Subject)
                 .chooseHobbies(Hobbies)
-                .uploadPicture("cat.jpg")
+                .uploadPicture(Picture)
                 .setAddress(streetAddress)
-                .chooseStateAndCity("Haryana","Panipat")
+                .chooseStateAndCity(State,City)
                 .clickSubmit();
 
 
