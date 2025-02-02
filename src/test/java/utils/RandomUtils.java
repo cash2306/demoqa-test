@@ -1,11 +1,8 @@
 package utils;
 
 import com.github.javafaker.Faker;
-import java.security.SecureRandom;
+
 import java.util.Locale;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.Locale;
-import utils.RandomUtils;
 
 public class RandomUtils {
     Faker faker = new Faker(new Locale("en-GB"));
@@ -48,6 +45,17 @@ public class RandomUtils {
         }
 
 
+    }
+    public void main(String[] args) {
+        System.out.println(firstName);
+        System.out.println(lastName);
+        System.out.println(email);
+        System.out.println(MobileNumber);
+        System.out.println(gender);
+        System.out.println(subject);
+        System.out.println(hobbies);
+        System.out.println(picture);
+        System.out.println(address);
     }
 }
 

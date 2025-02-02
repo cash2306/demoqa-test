@@ -8,7 +8,7 @@ import pages.RegistrationPage;
 import utils.RandomUtils;
 
 
-public class TextBoxTestsRandomUtils {
+public class TextBoxTestsRandomUtils extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
    RandomUtils RandomUtils = new RandomUtils();
 
@@ -41,9 +41,8 @@ public class TextBoxTestsRandomUtils {
                 .setAddress(RandomUtils.address)
                 .chooseStateAndCity(RandomUtils.state, RandomUtils.city)
                 .clickSubmit();
-
-
         }
+
     @Test
     @DisplayName("Проверка успешного сценария с минимальным количеством параметров")
     void studentRegistrationFormSuccessMinTest() {
