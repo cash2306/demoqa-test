@@ -1,32 +1,17 @@
 package tests;
 import com.codeborne.selenide.Configuration;
-import com.github.javafaker.Faker;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
+import utils.RandomUtils;
 
-import java.util.Locale;
-
-import static utils.RandomUtils.*;
 
 public class TextBoxTestsRandomUtils {
     RegistrationPage registrationPage = new RegistrationPage();
-    Faker faker = new Faker(new Locale("en-GB"));
-    String firstName = getRandomString(10);
-    String lastName = getRandomString(10);
-    String userEmail = getRandomEmail();
-    String streetAddress = getRandomAddress();
-    String MobileNumber = getRandomPhone();
-    String Gender = getRandomGender();
-    String BirthDay = String.valueOf(getRandomInt(1,28));
-    String BirthMonth = getRandomMonth();
-    String BirthYear = String.valueOf(getRandomInt(1925,2025));
-    String Subject = getRandomSubject();
-    String Hobbies = getRandomHobbies();
-    String Picture = getRandomPicture();
-    String State = getRandomState();
-    String City = getRandomCity();
+   RandomUtils RandomUtils = new RandomUtils();
+
     @BeforeAll
     static void beforeAll() {
         Configuration.browserSize = "1920x1080";
@@ -34,22 +19,27 @@ public class TextBoxTestsRandomUtils {
         Configuration.baseUrl = "https://demoqa.com";
     }
 
+    @BeforeEach
+    void setUp() {
+        RandomUtils = new RandomUtils();
+    }
+
     @Test
     void fullFillFormTest() {
         registrationPage
                 .openPage()
-                 .removeBanners()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .setEmail(userEmail)
-                .setBirthDate(BirthDay,BirthMonth,BirthYear)
-                .setMobileNumber(MobileNumber)
-                .chooseGender(Gender)
-                .setAndChooseSubject(Subject)
-                .chooseHobbies(Hobbies)
-                .uploadPicture(Picture)
-                .setAddress(streetAddress)
-                .chooseStateAndCity(State,City)
+                .removeBanners()
+                .setFirstName(RandomUtils.firstName)
+                .setLastName(RandomUtils.lastName)
+                .setEmail(RandomUtils.email)
+                .setBirthDate( RandomUtils.BirthDay, RandomUtils.BirthMonth, RandomUtils.BirthYear)
+                .setMobileNumber(RandomUtils.MobileNumber)
+                .chooseGender(RandomUtils.gender)
+                .setAndChooseSubject(RandomUtils.subject)
+                .chooseHobbies(RandomUtils.hobbies)
+                .uploadPicture(RandomUtils.picture)
+                .setAddress(RandomUtils.address)
+                .chooseStateAndCity(RandomUtils.state, RandomUtils.city)
                 .clickSubmit();
 
 
@@ -59,10 +49,10 @@ public class TextBoxTestsRandomUtils {
     void studentRegistrationFormSuccessMinTest() {
         registrationPage.openPage()
                 .removeBanners()
-                .setFirstName(firstName)
-                .setLastName(lastName)
-                .chooseGender(Gender)
-                .setMobileNumber(MobileNumber)
+                .setFirstName(RandomUtils.firstName)
+                .setLastName(RandomUtils.lastName)
+                .chooseGender(RandomUtils.gender)
+                .setMobileNumber(RandomUtils.MobileNumber)
                 .clickSubmit();
 
     }
@@ -71,10 +61,11 @@ public class TextBoxTestsRandomUtils {
     void studentRegistrationFormWithoutRequiredParameter() {
         registrationPage.openPage()
                 .removeBanners()
-                .setLastName(lastName)
-                .chooseGender(Gender)
-                .setMobileNumber(MobileNumber)
+                .setLastName(RandomUtils.lastName)
+                .chooseGender(RandomUtils.gender)
+                .setMobileNumber(RandomUtils.MobileNumber)
                 .clickSubmit();
+
     }
-                                                      }
+}
 
