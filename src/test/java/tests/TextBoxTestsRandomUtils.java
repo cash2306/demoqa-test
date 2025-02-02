@@ -35,9 +35,8 @@ public class TextBoxTestsRandomUtils extends TestBase {
                 .uploadPicture(randomUtils.picture)
                 .setAddress(randomUtils.address)
                 .chooseStateAndCity(randomUtils.state, randomUtils.city)
-                //.clickSubmit();
                 .checkResult("Student Name", randomUtils.firstName + " " + randomUtils.lastName)
-                .checkResult("Student Email", randomUtils.email)
+                .checkResult ("Student Email", randomUtils.email)
                 .checkResult("Gender", randomUtils.gender)
                 .checkResult("Mobile", randomUtils.MobileNumber)
                 .checkResult("Date of Birth", randomUtils.BirthDay + " " + randomUtils.BirthMonth + "," + randomUtils.BirthYear)

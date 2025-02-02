@@ -114,9 +114,11 @@ public class RegistrationPage {
     public void clickSubmit() {
         submitButton.click();
     }
+    public RegistrationPage checkResult(String key, String value) {
+        ModalComponent.checkResult(key, value);
 
-
-    public RegistrationPage checkResult(String studentName, String s) {
-
+        return this;
     };
+
+
 }
