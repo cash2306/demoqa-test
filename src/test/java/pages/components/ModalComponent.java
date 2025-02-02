@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class ModalComponent {
     public void checkResult(String key, String value) {
-        modal().$(byText(key)).parent()
+        modal().$(".table-responsive").$(byText(key)).parent()
                 .shouldHave(text(value));
 
 
