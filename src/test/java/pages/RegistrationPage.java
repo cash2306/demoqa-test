@@ -25,7 +25,7 @@ public class RegistrationPage {
             submitButton = $("#submit");
 
     CalendarComponent calendarComponent = new CalendarComponent();
-    ModalComponent modalComponent = new ModalComponent();
+     ModalComponent modalComponent = new ModalComponent();
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
@@ -116,4 +116,7 @@ public class RegistrationPage {
     }
 
 
+    public RegistrationPage checkResult(String studentName, String s) {
+
+    };
 }
